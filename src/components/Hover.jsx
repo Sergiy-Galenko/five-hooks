@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useRef} from 'react';
+import useHover from "../hooks/Hover";
 
 const Hover = () => {
+    const ref = useRef();
+    const isHovering = useHover(ref);
+
+    console.log(isHovering)
+
     return (
-        <div style={{width: 300, height: 300, background: 'red'}}>
-            
+        <div ref={ref} style={{width: 300, height: 300, background: isHovering ? 'red' : 'green'}}>
         </div>
     );
 };
